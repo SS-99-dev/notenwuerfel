@@ -22,6 +22,10 @@
         .note-buttons button:hover {
             background-color: darkgray;
         }
+        .note-buttons button.active {
+            border: 3px solid blue;
+            background-color: lightblue;
+        }
         #LBL {
             margin: 20px auto;
             font-size: 18px;
@@ -59,12 +63,12 @@
     <p>Tippe die Note an und schaue Dir die Erklärung an!</p>
 
     <div class="note-buttons">
-        <button onclick="zeigeErklärung(1)">1</button>
-        <button onclick="zeigeErklärung(2)">2</button>
-        <button onclick="zeigeErklärung(3)">3</button>
-        <button onclick="zeigeErklärung(4)">4</button>
-        <button onclick="zeigeErklärung(5)">5</button>
-        <button onclick="zeigeErklärung(6)">6</button>
+        <button id="note-1" onclick="zeigeErklärung(1)">1</button>
+        <button id="note-2" onclick="zeigeErklärung(2)">2</button>
+        <button id="note-3" onclick="zeigeErklärung(3)">3</button>
+        <button id="note-4" onclick="zeigeErklärung(4)">4</button>
+        <button id="note-5" onclick="zeigeErklärung(5)">5</button>
+        <button id="note-6" onclick="zeigeErklärung(6)">6</button>
     </div>
 
     <div id="LBL"></div>
@@ -82,16 +86,40 @@
                 5: "Die Leistung entspricht den Anforderungen nicht. Es ist aber erkennbar, dass die notwendigen Grundkenntnisse vorhanden sind.",
                 6: "Die Leistung entspricht den Anforderungen nicht und Mängel können nicht in absehbarer Zeit behoben werden.",
             };
+
+            // Zeige die Erklärung im Textfeld an
             document.getElementById("LBL").textContent = erklärungen[note] || "Ungültige Note.";
+
+            // Markiere die gewählte Note
+            markiereButton(note);
         }
 
         function reset() {
+            // Lösche den Text und entferne die Markierungen
             document.getElementById("LBL").textContent = "";
+            entferneMarkierungen();
         }
 
         function würfleNote() {
             const zufälligeNote = Math.floor(Math.random() * 6) + 1; // Zufallszahl zwischen 1 und 6
             zeigeErklärung(zufälligeNote);
+        }
+
+        function markiereButton(note) {
+            // Entferne vorherige Markierungen
+            entferneMarkierungen();
+
+            // Markiere den aktuellen Button
+            const button = document.getElementById(`note-${note}`);
+            if (button) {
+                button.classList.add("active");
+            }
+        }
+
+        function entferneMarkierungen() {
+            // Entfernt die Klasse "active" von allen Buttons
+            const buttons = document.querySelectorAll(".note-buttons button");
+            buttons.forEach(button => button.classList.remove("active"));
         }
     </script>
 </body>
