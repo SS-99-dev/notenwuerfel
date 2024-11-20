@@ -30,26 +30,28 @@
             width: 50%;
             background-color: white;
         }
-        .reset-button {
+        .reset-button, .random-button {
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 16px;
             border: 2px solid black;
             border-radius: 5px;
-            background-color: lightblue;
             cursor: pointer;
+        }
+        .reset-button {
+            background-color: lightblue;
         }
         .reset-button:hover {
             background-color: darkblue;
             color: white;
         }
         .random-button {
-         background-color: lightgreen;
-         }
+            background-color: lightgreen;
+        }
         .random-button:hover {
-         background-color: green;
-         color: white;
-         }
+            background-color: green;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +71,7 @@
 
     <button class="reset-button" onclick="reset()">Neue Zensur</button>
     <button class="random-button" onclick="würfleNote()">Zufällige Note</button>
+
     <script>
         function zeigeErklärung(note) {
             const erklärungen = {
@@ -77,7 +80,7 @@
                 3: "Die Leistung entspricht im Allgemeinen den Anforderungen.",
                 4: "Die Leistung weist Mängel auf, entspricht aber im Großen und Ganzen den Anforderungen.",
                 5: "Die Leistung entspricht den Anforderungen nicht. Es ist aber erkennbar, dass die notwendigen Grundkenntnisse vorhanden sind.",
-                6: "Die Leistung entspricht den Anforderungen nicht und Mängel können nicht in absehbarer Zeit behoben werden."
+                6: "Die Leistung entspricht den Anforderungen nicht und Mängel können nicht in absehbarer Zeit behoben werden.",
             };
             document.getElementById("LBL").textContent = erklärungen[note] || "Ungültige Note.";
         }
@@ -85,9 +88,10 @@
         function reset() {
             document.getElementById("LBL").textContent = "";
         }
-        function würfleNote() &
-        const zufälligeNote = Math.floor (Math.random() * 6) + 1;
-        zeigeErklärung(zufälligeNote);
+
+        function würfleNote() {
+            const zufälligeNote = Math.floor(Math.random() * 6) + 1; // Zufallszahl zwischen 1 und 6
+            zeigeErklärung(zufälligeNote);
         }
     </script>
 </body>
