@@ -86,16 +86,13 @@
                 5: "Die Leistung entspricht den Anforderungen nicht. Es ist aber erkennbar, dass die notwendigen Grundkenntnisse vorhanden sind.",
                 6: "Die Leistung entspricht den Anforderungen nicht und Mängel können nicht in absehbarer Zeit behoben werden.",
             };
-
-            // Zeige die Erklärung im Textfeld an
+            
             document.getElementById("LBL").textContent = erklärungen[note] || "Ungültige Note.";
 
-            // Markiere die gewählte Note
             markiereButton(note);
         }
 
         function reset() {
-            // Lösche den Text und entferne die Markierungen
             document.getElementById("LBL").textContent = "";
             entferneMarkierungen();
         }
@@ -106,10 +103,8 @@
         }
 
         function markiereButton(note) {
-            // Entferne vorherige Markierungen
             entferneMarkierungen();
 
-            // Markiere den aktuellen Button
             const button = document.getElementById(`note-${note}`);
             if (button) {
                 button.classList.add("active");
@@ -117,7 +112,6 @@
         }
 
         function entferneMarkierungen() {
-            // Entfernt die Klasse "active" von allen Buttons
             const buttons = document.querySelectorAll(".note-buttons button");
             buttons.forEach(button => button.classList.remove("active"));
         }
