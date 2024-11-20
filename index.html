@@ -66,11 +66,11 @@
         function zeigeErklärung(note) {
             const erklärungen = {
                 1: "Die Leistung entspricht den Anforderungen im besonderen Maße.",
-                2: "Die Leistung entspricht den Anforderungen.",
-                3: "Die Leistung weist Mängel auf, entspricht aber im Großen und Ganzen den Anforderungen.",
-                4: "Die Leistung entspricht den Anforderungen nicht. Es ist aber erkennbar, dass die notwendigen Grundkenntnisse vorhanden sind.",
-                5: "Die Leistung entspricht den Anforderungen nicht und Mängel können nicht in absehbarer Zeit behoben werden.",
-                6: "Die Leistung entspricht den Anforderungen nicht und erhebliche Mängel bestehen."
+                2: "Die Leistung entspricht den Anforderungen voll.",
+                3: "Die Leistung entspricht im Allgemeinen den Anforderungen.",
+                4: "Die Leistung weist Mängel auf, entspricht aber im Geoßen und Ganzen den Anforderungen.",
+                5: "Die Leistung entspricht den Anforderungen nicht. Es ist aber erkennbar, dass die notwendigen Grundkenntnisse vorhanden sind.",
+                6: "Die Leistung entspricht den Anforderungen nicht und Mängel können nicht in absehbarer Zeit behoben werden."
             };
             document.getElementById("LBL").textContent = erklärungen[note] || "Ungültige Note.";
         }
