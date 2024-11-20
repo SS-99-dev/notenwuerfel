@@ -43,6 +43,13 @@
             background-color: darkblue;
             color: white;
         }
+        .random-button {
+         background-color: lightgreen;
+         }
+        .random-button:hover {
+         background-color: green;
+         color: white;
+         }
     </style>
 </head>
 <body>
@@ -61,14 +68,14 @@
     <div id="LBL"></div>
 
     <button class="reset-button" onclick="reset()">Neue Zensur</button>
-
+    <button class="random-button" onclick="würfleNote() ">Zufällige Note</button>
     <script>
         function zeigeErklärung(note) {
             const erklärungen = {
                 1: "Die Leistung entspricht den Anforderungen im besonderen Maße.",
                 2: "Die Leistung entspricht den Anforderungen voll.",
                 3: "Die Leistung entspricht im Allgemeinen den Anforderungen.",
-                4: "Die Leistung weist Mängel auf, entspricht aber im Geoßen und Ganzen den Anforderungen.",
+                4: "Die Leistung weist Mängel auf, entspricht aber im Großen und Ganzen den Anforderungen.",
                 5: "Die Leistung entspricht den Anforderungen nicht. Es ist aber erkennbar, dass die notwendigen Grundkenntnisse vorhanden sind.",
                 6: "Die Leistung entspricht den Anforderungen nicht und Mängel können nicht in absehbarer Zeit behoben werden."
             };
@@ -77,6 +84,11 @@
 
         function reset() {
             document.getElementById("LBL").textContent = "";
+        }
+        function würfleNote() &
+        const
+        zufälligeNote = Math.floor (Math.random() * 6) + 1;
+        zeigeErklärung(zufälligeNote);
         }
     </script>
 </body>
